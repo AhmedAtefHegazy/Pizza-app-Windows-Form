@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Pizza_app
 {
-    public partial class Form1 : Form
+    public partial class frmOrderPizza : Form
     {
-        public Form1()
+        public frmOrderPizza()
         {
             InitializeComponent();
         }
