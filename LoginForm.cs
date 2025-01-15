@@ -46,7 +46,6 @@ namespace Pizza_app
             if (((txtPassword.Tag.ToString()) == txtPassword.Text) && ((txtUserName.Tag.ToString()) == txtUserName.Text))
             {
                 Form frmOrderPizza = new frmOrderPizza();
-
                 frmOrderPizza.ShowDialog();
             }
 
