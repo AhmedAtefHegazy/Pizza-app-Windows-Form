@@ -30,12 +30,13 @@
         {
             this.lblLogin = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
-            this.btnCancle = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.chkShowPassword = new System.Windows.Forms.CheckBox();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblPassWord = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.lblShowPassword = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblLogin
@@ -59,15 +60,16 @@
             this.txtUserName.Tag = "admin";
             this.txtUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnCancle
+            // btnClose
             // 
-            this.btnCancle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnCancle.Location = new System.Drawing.Point(197, 338);
-            this.btnCancle.Name = "btnCancle";
-            this.btnCancle.Size = new System.Drawing.Size(96, 41);
-            this.btnCancle.TabIndex = 5;
-            this.btnCancle.Text = "Cancle";
-            this.btnCancle.UseVisualStyleBackColor = false;
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnClose.Location = new System.Drawing.Point(197, 338);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(96, 41);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // chkShowPassword
             // 
@@ -76,10 +78,10 @@
             this.chkShowPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.chkShowPassword.Location = new System.Drawing.Point(48, 268);
             this.chkShowPassword.Name = "chkShowPassword";
-            this.chkShowPassword.Size = new System.Drawing.Size(142, 25);
+            this.chkShowPassword.Size = new System.Drawing.Size(18, 17);
             this.chkShowPassword.TabIndex = 3;
-            this.chkShowPassword.Text = "Show Password";
             this.chkShowPassword.UseVisualStyleBackColor = true;
+            this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
             // 
             // lblUserName
             // 
@@ -106,7 +108,7 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(48, 240);
-            this.txtPassword.MaxLength = 4;
+            this.txtPassword.MaxLength = 10;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(245, 22);
             this.txtPassword.TabIndex = 2;
@@ -124,6 +126,18 @@
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // lblShowPassword
+            // 
+            this.lblShowPassword.AutoSize = true;
+            this.lblShowPassword.Font = new System.Drawing.Font("Impact", 8F);
+            this.lblShowPassword.ForeColor = System.Drawing.Color.Blue;
+            this.lblShowPassword.Location = new System.Drawing.Point(72, 267);
+            this.lblShowPassword.Name = "lblShowPassword";
+            this.lblShowPassword.Size = new System.Drawing.Size(96, 18);
+            this.lblShowPassword.TabIndex = 7;
+            this.lblShowPassword.Text = "Show Password";
             // 
             // LoginForm
             // 
@@ -131,12 +145,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(349, 423);
+            this.Controls.Add(this.lblShowPassword);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.lblPassWord);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.chkShowPassword);
-            this.Controls.Add(this.btnCancle);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.lblLogin);
             this.Name = "LoginForm";
@@ -150,11 +165,12 @@
 
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.TextBox txtUserName;
-        private System.Windows.Forms.Button btnCancle;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.CheckBox chkShowPassword;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblPassWord;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Label lblShowPassword;
     }
 }
