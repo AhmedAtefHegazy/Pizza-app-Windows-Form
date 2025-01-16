@@ -157,6 +157,7 @@
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.lblLogin);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
