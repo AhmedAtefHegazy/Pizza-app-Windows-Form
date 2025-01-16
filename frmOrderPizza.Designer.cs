@@ -456,6 +456,7 @@
             this.btnOrderPizza.TabIndex = 5;
             this.btnOrderPizza.Text = "Order Pizza";
             this.btnOrderPizza.UseVisualStyleBackColor = false;
+            this.btnOrderPizza.Click += new System.EventHandler(this.btnOrderPizza_Click);
             // 
             // btnResetOrder
             // 
@@ -466,11 +467,13 @@
             this.btnResetOrder.TabIndex = 6;
             this.btnResetOrder.Text = "Reset Order";
             this.btnResetOrder.UseVisualStyleBackColor = false;
+            this.btnResetOrder.Click += new System.EventHandler(this.btnResetOrder_Click);
             // 
             // frmOrderPizza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1111, 774);
             this.Controls.Add(this.btnResetOrder);
@@ -482,6 +485,7 @@
             this.Controls.Add(this.gbSize);
             this.Controls.Add(this.lblMakeYourPizza);
             this.Name = "frmOrderPizza";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pizza Order";
             this.gbSize.ResumeLayout(false);
             this.gbSize.PerformLayout();

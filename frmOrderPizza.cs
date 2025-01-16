@@ -363,5 +363,35 @@ namespace Pizza_app
             }
         }
 
+        private void btnOrderPizza_Click(object sender, System.EventArgs e)
+        {
+
+            if (MessageBox.Show("Confirm Order", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                gbCrustType.Enabled = false;
+                gbSize.Enabled = false;
+                gbToppings.Enabled = false;
+                gbWhereToEat.Enabled = false;
+                btnOrderPizza.Enabled = false;
+            }
+        }
+
+        private void btnResetOrder_Click(object sender, System.EventArgs e)
+        {
+            gbCrustType.Enabled = true;
+            gbSize.Enabled = true;
+            gbToppings.Enabled = true;
+            gbWhereToEat.Enabled = true;
+            btnOrderPizza.Enabled = true;
+            rbtnMeduim.Checked = true;
+            rbtnThinCrust.Checked = true;
+            rbtnEatIn.Checked = true;
+            chkExtraCheese.Checked = false;
+            chkGreenPeppers.Checked = false;
+            chkMushrooms.Checked = false;
+            chkOlives.Checked = false;
+            chkOnion.Checked = false;
+            chkTomatoes.Checked = false;
+        }
     }
 }
