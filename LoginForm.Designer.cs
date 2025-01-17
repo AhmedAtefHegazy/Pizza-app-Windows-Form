@@ -30,132 +30,105 @@
         {
             this.lblLogin = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.chkShowPassword = new System.Windows.Forms.CheckBox();
-            this.lblUserName = new System.Windows.Forms.Label();
-            this.lblPassWord = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.chkShowPassword = new System.Windows.Forms.CheckBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.lblShowPassword = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblLogin
             // 
             this.lblLogin.AutoSize = true;
-            this.lblLogin.Font = new System.Drawing.Font("Impact", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.ForeColor = System.Drawing.Color.Blue;
-            this.lblLogin.Location = new System.Drawing.Point(41, 29);
+            this.lblLogin.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.lblLogin.Location = new System.Drawing.Point(36, 21);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(91, 41);
+            this.lblLogin.Size = new System.Drawing.Size(145, 54);
             this.lblLogin.TabIndex = 0;
-            this.lblLogin.Text = "Login";
+            this.lblLogin.Text = "LOGIN";
+            this.lblLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(48, 138);
+            this.txtUserName.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtUserName.Location = new System.Drawing.Point(45, 100);
             this.txtUserName.MaxLength = 20;
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(245, 22);
+            this.txtUserName.Size = new System.Drawing.Size(245, 34);
             this.txtUserName.TabIndex = 1;
             this.txtUserName.Tag = "admin";
             this.txtUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnClose
+            // txtPassword
             // 
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnClose.Location = new System.Drawing.Point(197, 338);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(96, 41);
-            this.btnClose.TabIndex = 5;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtPassword.Location = new System.Drawing.Point(45, 150);
+            this.txtPassword.MaxLength = 20;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '●';
+            this.txtPassword.Size = new System.Drawing.Size(245, 34);
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.Tag = "1234";
+            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // chkShowPassword
             // 
             this.chkShowPassword.AutoSize = true;
-            this.chkShowPassword.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkShowPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.chkShowPassword.Location = new System.Drawing.Point(48, 268);
+            this.chkShowPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.chkShowPassword.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.chkShowPassword.Location = new System.Drawing.Point(45, 190);
             this.chkShowPassword.Name = "chkShowPassword";
-            this.chkShowPassword.Size = new System.Drawing.Size(18, 17);
+            this.chkShowPassword.Size = new System.Drawing.Size(132, 24);
             this.chkShowPassword.TabIndex = 3;
+            this.chkShowPassword.Text = "Show Password";
             this.chkShowPassword.UseVisualStyleBackColor = true;
             this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
             // 
-            // lblUserName
-            // 
-            this.lblUserName.AutoSize = true;
-            this.lblUserName.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.ForeColor = System.Drawing.Color.Blue;
-            this.lblUserName.Location = new System.Drawing.Point(44, 114);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(85, 21);
-            this.lblUserName.TabIndex = 5;
-            this.lblUserName.Text = "User Name";
-            // 
-            // lblPassWord
-            // 
-            this.lblPassWord.AutoSize = true;
-            this.lblPassWord.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassWord.ForeColor = System.Drawing.Color.Blue;
-            this.lblPassWord.Location = new System.Drawing.Point(44, 216);
-            this.lblPassWord.Name = "lblPassWord";
-            this.lblPassWord.Size = new System.Drawing.Size(79, 21);
-            this.lblPassWord.TabIndex = 6;
-            this.lblPassWord.Text = "Password";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(48, 240);
-            this.txtPassword.MaxLength = 10;
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(245, 22);
-            this.txtPassword.TabIndex = 2;
-            this.txtPassword.Tag = "1234";
-            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
-            // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.Yellow;
-            this.btnLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLogin.Location = new System.Drawing.Point(48, 338);
+            this.btnLogin.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnLogin.FlatAppearance.BorderSize = 0;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.Location = new System.Drawing.Point(45, 230);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(96, 41);
+            this.btnLogin.Size = new System.Drawing.Size(100, 40);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // lblShowPassword
+            // btnClose
             // 
-            this.lblShowPassword.AutoSize = true;
-            this.lblShowPassword.Font = new System.Drawing.Font("Impact", 8F);
-            this.lblShowPassword.ForeColor = System.Drawing.Color.Blue;
-            this.lblShowPassword.Location = new System.Drawing.Point(72, 267);
-            this.lblShowPassword.Name = "lblShowPassword";
-            this.lblShowPassword.Size = new System.Drawing.Size(96, 18);
-            this.lblShowPassword.TabIndex = 7;
-            this.lblShowPassword.Text = "Show Password";
+            this.btnClose.BackColor = System.Drawing.Color.IndianRed;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(190, 230);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(100, 40);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // LoginForm
             // 
             this.AcceptButton = this.btnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(349, 423);
-            this.Controls.Add(this.lblShowPassword);
-            this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.lblPassWord);
-            this.Controls.Add(this.lblUserName);
-            this.Controls.Add(this.chkShowPassword);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(349, 300);
             this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.chkShowPassword);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.lblLogin);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
@@ -168,12 +141,9 @@
 
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.TextBox txtUserName;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.CheckBox chkShowPassword;
-        private System.Windows.Forms.Label lblUserName;
-        private System.Windows.Forms.Label lblPassWord;
         private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.CheckBox chkShowPassword;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Label lblShowPassword;
+        private System.Windows.Forms.Button btnClose;
     }
 }

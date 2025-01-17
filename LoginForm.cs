@@ -9,20 +9,6 @@ namespace Pizza_app
             InitializeComponent();
         }
 
-        private void txtPassword_TextChanged(object sender, System.EventArgs e)
-        {
-            if (chkShowPassword.Checked == false)
-            {
-                txtPassword.PasswordChar = '*';
-            }
-
-            else
-            {
-                txtPassword.PasswordChar = '\0';
-            }
-
-        }
-
         private void chkShowPassword_CheckedChanged(object sender, System.EventArgs e)
         {
             if (chkShowPassword.Checked == false)
@@ -47,6 +33,7 @@ namespace Pizza_app
             {
                 txtUserName.Clear();
                 txtPassword.Clear();
+                txtUserName.Focus();
 
                 Form frmOrderPizza = new frmOrderPizza();
                 frmOrderPizza.ShowDialog();
@@ -54,6 +41,9 @@ namespace Pizza_app
 
             else
             {
+                txtUserName.Clear();
+                txtPassword.Clear();
+                txtUserName.Focus();
                 MessageBox.Show("Error ! ,wrong username or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

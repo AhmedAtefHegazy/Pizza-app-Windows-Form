@@ -1,397 +1,332 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace Pizza_app
 {
 
     public partial class frmOrderPizza : Form
     {
-        byte TotalPrice = 20;
-        string[] Toppings = new string[6] { "", "", "", "", "", "" };
 
         public frmOrderPizza()
         {
             InitializeComponent();
-            lblPrice.Text = "$20";
-            lblToppingsValue.Text = "No Toppings.";
+        }
+
+        float GetSelectedSizePrice()
+        {
+            if (rbSmall.Checked)
+            {
+                return Convert.ToSingle(rbSmall.Tag);
+            }
+
+            else if (rbMedium.Checked)
+            {
+                return Convert.ToSingle(rbMedium.Tag);
+            }
+
+            else
+            {
+                return Convert.ToSingle(rbLarge.Tag);
+            }
+        }
+
+        float GetToppingsPrice()
+        {
+            float ToppingsPrice = 0;
+
+            if (chkExtraCheese.Checked)
+            {
+                ToppingsPrice += Convert.ToSingle(chkExtraCheese.Tag);
+            }
+
+            if (chkGreenPeppers.Checked)
+            {
+                ToppingsPrice += Convert.ToSingle(chkGreenPeppers.Tag);
+            }
+
+            if (chkMushrooms.Checked)
+            {
+                ToppingsPrice += Convert.ToSingle(chkMushrooms.Tag);
+            }
+
+            if (chkOlives.Checked)
+            {
+                ToppingsPrice += Convert.ToSingle(chkOlives.Tag);
+            }
+
+            if (chkOnion.Checked)
+            {
+                ToppingsPrice += Convert.ToSingle(chkOnion.Tag);
+
+            }
+
+            if (chkTomatos.Checked)
+            {
+                ToppingsPrice += Convert.ToSingle(chkTomatos.Tag);
+            }
+
+            return ToppingsPrice;
+        }
+
+        float GetSelectedCrustPrice()
+        {
+            if (rbThinCrust.Checked)
+                return Convert.ToSingle(rbThinCrust.Tag);
+
+            else
+                return Convert.ToSingle(rbThickCrust.Tag);
+        }
+
+        float CalculateTotalPrice()
+        {
+            return GetSelectedCrustPrice() + GetSelectedSizePrice() + GetToppingsPrice();
+        }
+
+        void UpdateTotalPrice()
+        {
+            lblTotalPrice.Text = "$" + CalculateTotalPrice();
+        }
+
+        void UpdateSize()
+        {
+            UpdateTotalPrice();
+
+            if (rbSmall.Checked)
+            {
+                lblSize.Text = "Small";
+                return;
+            }
+
+            if (rbMedium.Checked)
+            {
+                lblSize.Text = "Meduim";
+                return;
+            }
+
+            if (rbLarge.Checked)
+            {
+                lblSize.Text = "Large";
+                return;
+            }
+        }
+
+        void UpdateCrust()
+        {
+            UpdateTotalPrice();
+
+            if (rbThinCrust.Checked)
+            {
+                lblCrustType.Text = "Thin Crust";
+                return;
+            }
+
+            if (rbThickCrust.Checked)
+            {
+                lblCrustType.Text = "Thick Crust";
+                return;
+            }
 
         }
 
-        private void IsNoToppings()
+        void UpdateEat()
         {
+            UpdateTotalPrice();
 
-            if ((lblToppingsValue.Text == "" || lblToppingsValue.Text == "\n"))
+            if (rbEatIn.Checked)
             {
-                lblToppingsValue.Text = "No Toppings.";
+                lblWhereToEat.Text = "Eat In";
+                return;
             }
+
+            if (rbTakeOut.Checked)
+            {
+                lblWhereToEat.Text = "Take Out";
+                return;
+            }
+
         }
 
-        private void ChangeToppingText(string[] Toppings)
+        void UpdateToppings()
         {
-            lblToppingsValue.Text = "";
+            UpdateTotalPrice();
+            string sToppings = "";
 
-            if (lblToppingsValue.Text != "" && lblToppingsValue.Text.Substring(0, 1) == ",")
+
+            if (chkExtraCheese.Checked)
             {
-                lblToppingsValue.Text.Replace(",", "");
+                sToppings = "Extra Cheese";
             }
 
-            for (byte i = 0; i < 6; i++)
+            if (chkOnion.Checked)
             {
-
-
-                if (Toppings[i] != "" && i != 0)
-                {
-                    lblToppingsValue.Text += ",";
-                }
-
-                if (i == 3)
-                {
-                    lblToppingsValue.Text += "\n";
-                }
-
-                lblToppingsValue.Text += Toppings[i];
+                sToppings += ", Onion";
             }
 
+            if (chkMushrooms.Checked)
+            {
+                sToppings += ", Mushrooms";
+            }
 
+            if (chkOlives.Checked)
+            {
+                sToppings += ", Olives";
+            }
 
-            IsNoToppings();
+            if (chkTomatos.Checked)
+            {
+                sToppings += ", Tomatoes";
+            }
 
+            if (chkGreenPeppers.Checked)
+            {
+                sToppings += ", Green Peppers";
+            }
+
+            if (sToppings.StartsWith(","))
+            {
+                sToppings = sToppings.Substring(1, sToppings.Length - 1).Trim();
+            }
+
+            if (sToppings == "")
+            {
+                sToppings = "No Toppings";
+            }
+
+            lblToppings.Text = sToppings;
+        }
+
+        void UpdateOrderSummary()
+        {
+            UpdateSize();
+            UpdateCrust();
+            UpdateEat();
+            UpdateToppings();
+        }
+
+        void ResetForm()
+        {
+            //reset Groups
+            gbCrustType.Enabled = true;
+            gbSize.Enabled = true;
+            gbWhereToEat.Enabled = true;
+            gbToppings.Enabled = true;
+
+            //reset Size
+            rbSmall.Checked = true;
+
+            //reset Crust Type
+            rbThinCrust.Checked = true;
+
+            //reset Where to Eat
+            rbEatIn.Checked = true;
+
+            //reset Toppings
+            chkExtraCheese.Checked = false;
+            chkMushrooms.Checked = false;
+            chkOlives.Checked = false;
+            chkTomatos.Checked = false;
+            chkOnion.Checked = false;
+            chkGreenPeppers.Checked = false;
+
+            //reset Order btn
+            btnOrderPizza.Enabled = true;
         }
 
         private void rbtnSmall_CheckedChanged(object sender, System.EventArgs e)
         {
-            if (rbtnSmall.Checked)
-            {
-                TotalPrice += 5;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-                lblSizeValue.Text = "Small";
-            }
-
-            else
-            {
-                TotalPrice -= 5;
-                lblPrice.Text = "";
-            }
+            UpdateSize();
         }
 
         private void rbtnMeduim_CheckedChanged(object sender, System.EventArgs e)
         {
-            if (rbtnMeduim.Checked)
-            {
-                TotalPrice += 10;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-
-                lblSizeValue.Text = "Meduim";
-            }
-
-            else
-            {
-                TotalPrice -= 10;
-                lblPrice.Text = "";
-            }
+            UpdateSize();
         }
 
         private void rbtnLarge_CheckedChanged(object sender, System.EventArgs e)
         {
-            if (rbtnLarge.Checked)
-            {
-                TotalPrice += 20;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-                lblSizeValue.Text = "Large";
-            }
-
-            else
-            {
-                TotalPrice -= 20;
-                lblPrice.Text = "";
-            }
+            UpdateSize();
         }
 
         private void rbtnThinCrust_CheckedChanged(object sender, System.EventArgs e)
         {
-            if (rbtnThinCrust.Checked == true)
-            {
-                TotalPrice += 10;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-                lblCrustValue.Text = "Thin Crust";
-            }
-
-            else
-            {
-                TotalPrice -= 10;
-            }
+            UpdateCrust();
         }
 
         private void rbtnThickCrust_CheckedChanged(object sender, System.EventArgs e)
         {
-            if (rbtnThickCrust.Checked == true)
-            {
-                TotalPrice += 10;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-                lblCrustValue.Text = "Thick Crust";
-            }
-
-            else
-            {
-                TotalPrice -= 10;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-                lblCrustValue.Text = "Thin Crust";
-            }
+            UpdateCrust();
         }
 
         private void rbtnEatIn_CheckedChanged(object sender, System.EventArgs e)
         {
-            lblEatValue.Text = "Eat In";
+            UpdateEat();
         }
 
         private void rbtnTakeOut_CheckedChanged(object sender, System.EventArgs e)
         {
-            lblEatValue.Text = "Take Out";
+            UpdateEat();
         }
 
         private void chkExtraCheese_CheckedChanged(object sender, System.EventArgs e)
         {
-            if (chkExtraCheese.Checked)
-            {
-                TotalPrice += 5;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-
-                for (byte i = 0; i < 6; i++)
-                {
-                    if (Toppings[i] == "")
-                    {
-                        Toppings[i] = "Extra Cheese";
-                        break;
-                    }
-
-                }
-                ChangeToppingText(Toppings);
-            }
-
-            else
-            {
-                TotalPrice -= 5;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-
-                for (byte i = 0; i < 6; i++)
-                {
-                    if (Toppings[i] == "Extra Cheese")
-                    {
-                        Toppings[i] = "";
-                        break;
-                    }
-
-
-                }
-                ChangeToppingText(Toppings);
-            }
+            UpdateToppings();
         }
 
         private void chkOnion_CheckedChanged(object sender, System.EventArgs e)
         {
-            if (chkOnion.Checked)
-            {
-                TotalPrice += 5;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-                for (byte i = 0; i < 6; i++)
-                {
-                    if (Toppings[i] == "")
-                    {
-                        Toppings[i] = "Onion";
-                        break;
-                    }
-                }
-                ChangeToppingText(Toppings);
-            }
-
-            else
-            {
-                TotalPrice -= 5;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-                for (byte i = 0; i < 6; i++)
-                {
-                    if (Toppings[i] == "Onion")
-                    {
-                        Toppings[i] = "";
-                        break;
-                    }
-
-                }
-                ChangeToppingText(Toppings);
-            }
-
+            UpdateToppings();
         }
 
         private void chkMushrooms_CheckedChanged(object sender, System.EventArgs e)
         {
-            if (chkMushrooms.Checked)
-            {
-                TotalPrice += 5;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-
-                for (byte i = 0; i < 6; i++)
-                {
-                    if (Toppings[i] == "")
-                    {
-                        Toppings[i] = "Mushrooms";
-                        break;
-                    }
-                }
-                ChangeToppingText(Toppings);
-            }
-
-            else
-            {
-                TotalPrice -= 5;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-
-                for (byte i = 0; i < 6; i++)
-                {
-                    if (Toppings[i] == "Mushrooms")
-                    {
-                        Toppings[i] = "";
-                        break;
-                    }
-                }
-                ChangeToppingText(Toppings);
-            }
+            UpdateToppings();
         }
 
         private void chkOlives_CheckedChanged(object sender, System.EventArgs e)
         {
-            if (chkOlives.Checked)
-            {
-                TotalPrice += 5;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-
-                for (byte i = 0; i < 6; i++)
-                {
-                    if (Toppings[i] == "")
-                    {
-                        Toppings[i] = "Olives";
-                        break;
-                    }
-
-                }
-                ChangeToppingText(Toppings);
-            }
-
-            else
-            {
-                TotalPrice -= 5;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-
-                for (byte i = 0; i < 6; i++)
-                {
-                    if (Toppings[i] == "Olives")
-                    {
-                        Toppings[i] = "";
-                        break;
-                    }
-                }
-                ChangeToppingText(Toppings);
-            }
+            UpdateToppings();
         }
 
         private void chkTomatoes_CheckedChanged(object sender, System.EventArgs e)
         {
-            if (chkTomatoes.Checked)
-            {
-                TotalPrice += 5;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-
-                for (byte i = 0; i < 6; i++)
-                {
-                    if (Toppings[i] == "")
-                    {
-                        Toppings[i] = "Tomatoes";
-                        break;
-                    }
-                }
-                ChangeToppingText(Toppings);
-            }
-
-            else
-            {
-                TotalPrice -= 5;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-
-                for (byte i = 0; i < 6; i++)
-                {
-                    if (Toppings[i] == "Tomatoes")
-                    {
-                        Toppings[i] = "";
-                        break;
-                    }
-                }
-                ChangeToppingText(Toppings);
-            }
+            UpdateToppings();
         }
 
         private void chkGreenPeppers_CheckedChanged(object sender, System.EventArgs e)
         {
-            if (chkGreenPeppers.Checked)
-            {
-                TotalPrice += 5;
-                lblPrice.Text = "$" + TotalPrice.ToString();
+            UpdateToppings();
+        }
 
-                for (byte i = 0; i < 6; i++)
-                {
-                    if (Toppings[i] == "")
-                    {
-                        Toppings[i] = "GreenPeppers";
-                        break;
-                    }
-                }
-                ChangeToppingText(Toppings);
+        private void btnOrderPizza_Click(object sender, System.EventArgs e)
+        {
+            if (MessageBox.Show("Confirm Order", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                MessageBox.Show("Order Placed Successfuly", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                gbCrustType.Enabled = false;
+                gbSize.Enabled = false;
+                gbWhereToEat.Enabled = false;
+                gbToppings.Enabled = false;
+
+                btnOrderPizza.Enabled = false;
 
             }
 
             else
             {
-                TotalPrice -= 5;
-                lblPrice.Text = "$" + TotalPrice.ToString();
-
-                for (byte i = 0; i < 6; i++)
-                {
-                    if (Toppings[i] == "GreenPeppers")
-                    {
-                        Toppings[i] = "";
-                        break;
-                    }
-                }
-                ChangeToppingText(Toppings);
-            }
-        }
-
-        private void btnOrderPizza_Click(object sender, System.EventArgs e)
-        {
-
-            if (MessageBox.Show("Confirm Order", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-            {
-                gbCrustType.Enabled = false;
-                gbSize.Enabled = false;
-                gbToppings.Enabled = false;
-                gbWhereToEat.Enabled = false;
-                btnOrderPizza.Enabled = false;
+                MessageBox.Show("Update your order", "Update",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
         private void btnResetOrder_Click(object sender, System.EventArgs e)
         {
-            gbCrustType.Enabled = true;
-            gbSize.Enabled = true;
-            gbToppings.Enabled = true;
-            gbWhereToEat.Enabled = true;
-            btnOrderPizza.Enabled = true;
-            rbtnMeduim.Checked = true;
-            rbtnThinCrust.Checked = true;
-            rbtnEatIn.Checked = true;
-            chkExtraCheese.Checked = false;
-            chkGreenPeppers.Checked = false;
-            chkMushrooms.Checked = false;
-            chkOlives.Checked = false;
-            chkOnion.Checked = false;
-            chkTomatoes.Checked = false;
+            ResetForm();
+        }
+
+        private void frmOrderPizza_Load(object sender, System.EventArgs e)
+        {
+            UpdateOrderSummary();
         }
     }
 }
