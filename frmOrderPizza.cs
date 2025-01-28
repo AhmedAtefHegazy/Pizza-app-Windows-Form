@@ -84,7 +84,7 @@ namespace Pizza_app
 
         void UpdateTotalPrice()
         {
-            lblTotalPrice.Text = "$" + CalculateTotalPrice();
+            lblTotalPrice.Text = $"${CalculateTotalPrice() * (float)nupPizzaNumber.Value}";
         }
 
         void UpdateSize()
@@ -327,6 +327,11 @@ namespace Pizza_app
         private void frmOrderPizza_Load(object sender, System.EventArgs e)
         {
             UpdateOrderSummary();
+        }
+
+        private void nupPizzaNumber_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateTotalPrice();
         }
     }
 }

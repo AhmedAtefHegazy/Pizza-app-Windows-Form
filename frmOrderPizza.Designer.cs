@@ -60,11 +60,14 @@
             this.lblSize = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.nupPizzaNumber = new System.Windows.Forms.NumericUpDown();
+            this.lblPizzaNumber = new System.Windows.Forms.Label();
             this.gbSize.SuspendLayout();
             this.gbToppings.SuspendLayout();
             this.gbCrustType.SuspendLayout();
             this.gbWhereToEat.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nupPizzaNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // gbSize
@@ -137,7 +140,7 @@
             this.gbToppings.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbToppings.Name = "gbToppings";
             this.gbToppings.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbToppings.Size = new System.Drawing.Size(335, 187);
+            this.gbToppings.Size = new System.Drawing.Size(335, 130);
             this.gbToppings.TabIndex = 1;
             this.gbToppings.TabStop = false;
             this.gbToppings.Text = "Toppings";
@@ -145,7 +148,7 @@
             // chkGreenPeppers
             // 
             this.chkGreenPeppers.AutoSize = true;
-            this.chkGreenPeppers.Location = new System.Drawing.Point(166, 111);
+            this.chkGreenPeppers.Location = new System.Drawing.Point(166, 91);
             this.chkGreenPeppers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkGreenPeppers.Name = "chkGreenPeppers";
             this.chkGreenPeppers.Size = new System.Drawing.Size(166, 29);
@@ -159,7 +162,7 @@
             // chkTomatos
             // 
             this.chkTomatos.AutoSize = true;
-            this.chkTomatos.Location = new System.Drawing.Point(8, 111);
+            this.chkTomatos.Location = new System.Drawing.Point(8, 91);
             this.chkTomatos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkTomatos.Name = "chkTomatos";
             this.chkTomatos.Size = new System.Drawing.Size(122, 29);
@@ -173,7 +176,7 @@
             // chkOlives
             // 
             this.chkOlives.AutoSize = true;
-            this.chkOlives.Location = new System.Drawing.Point(166, 73);
+            this.chkOlives.Location = new System.Drawing.Point(166, 62);
             this.chkOlives.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkOlives.Name = "chkOlives";
             this.chkOlives.Size = new System.Drawing.Size(89, 29);
@@ -187,7 +190,7 @@
             // chkMushrooms
             // 
             this.chkMushrooms.AutoSize = true;
-            this.chkMushrooms.Location = new System.Drawing.Point(8, 73);
+            this.chkMushrooms.Location = new System.Drawing.Point(8, 62);
             this.chkMushrooms.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkMushrooms.Name = "chkMushrooms";
             this.chkMushrooms.Size = new System.Drawing.Size(137, 29);
@@ -201,7 +204,7 @@
             // chkOnion
             // 
             this.chkOnion.AutoSize = true;
-            this.chkOnion.Location = new System.Drawing.Point(166, 39);
+            this.chkOnion.Location = new System.Drawing.Point(166, 33);
             this.chkOnion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkOnion.Name = "chkOnion";
             this.chkOnion.Size = new System.Drawing.Size(87, 29);
@@ -214,7 +217,7 @@
             // chkExtraCheese
             // 
             this.chkExtraCheese.AutoSize = true;
-            this.chkExtraCheese.Location = new System.Drawing.Point(8, 39);
+            this.chkExtraCheese.Location = new System.Drawing.Point(8, 33);
             this.chkExtraCheese.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkExtraCheese.Name = "chkExtraCheese";
             this.chkExtraCheese.Size = new System.Drawing.Size(153, 29);
@@ -271,7 +274,7 @@
             this.gbWhereToEat.Controls.Add(this.rbTakeOut);
             this.gbWhereToEat.Controls.Add(this.rbEatIn);
             this.gbWhereToEat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.gbWhereToEat.Location = new System.Drawing.Point(345, 334);
+            this.gbWhereToEat.Location = new System.Drawing.Point(345, 268);
             this.gbWhereToEat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbWhereToEat.Name = "gbWhereToEat";
             this.gbWhereToEat.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -311,7 +314,7 @@
             // 
             this.btnOrderPizza.Location = new System.Drawing.Point(345, 437);
             this.btnOrderPizza.Name = "btnOrderPizza";
-            this.btnOrderPizza.Size = new System.Drawing.Size(119, 40);
+            this.btnOrderPizza.Size = new System.Drawing.Size(161, 40);
             this.btnOrderPizza.TabIndex = 4;
             this.btnOrderPizza.Text = "Order Pizza";
             this.btnOrderPizza.UseVisualStyleBackColor = true;
@@ -319,9 +322,9 @@
             // 
             // btnResetForm
             // 
-            this.btnResetForm.Location = new System.Drawing.Point(561, 437);
+            this.btnResetForm.Location = new System.Drawing.Point(512, 437);
             this.btnResetForm.Name = "btnResetForm";
-            this.btnResetForm.Size = new System.Drawing.Size(119, 40);
+            this.btnResetForm.Size = new System.Drawing.Size(168, 40);
             this.btnResetForm.TabIndex = 5;
             this.btnResetForm.Text = "Reset Form";
             this.btnResetForm.UseVisualStyleBackColor = true;
@@ -458,11 +461,30 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Make Your Pizza";
             // 
+            // nupPizzaNumber
+            // 
+            this.nupPizzaNumber.Location = new System.Drawing.Point(512, 381);
+            this.nupPizzaNumber.Name = "nupPizzaNumber";
+            this.nupPizzaNumber.Size = new System.Drawing.Size(168, 30);
+            this.nupPizzaNumber.TabIndex = 8;
+            this.nupPizzaNumber.ValueChanged += new System.EventHandler(this.nupPizzaNumber_ValueChanged);
+            // 
+            // lblPizzaNumber
+            // 
+            this.lblPizzaNumber.AutoSize = true;
+            this.lblPizzaNumber.Location = new System.Drawing.Point(348, 383);
+            this.lblPizzaNumber.Name = "lblPizzaNumber";
+            this.lblPizzaNumber.Size = new System.Drawing.Size(154, 25);
+            this.lblPizzaNumber.TabIndex = 9;
+            this.lblPizzaNumber.Text = "Pizza Number    ";
+            // 
             // frmOrderPizza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1201, 522);
+            this.Controls.Add(this.lblPizzaNumber);
+            this.Controls.Add(this.nupPizzaNumber);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnResetForm);
             this.Controls.Add(this.btnOrderPizza);
@@ -486,6 +508,7 @@
             this.gbWhereToEat.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nupPizzaNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -525,6 +548,8 @@
         private System.Windows.Forms.Label lblWhereToEat;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown nupPizzaNumber;
+        private System.Windows.Forms.Label lblPizzaNumber;
     }
 }
 
